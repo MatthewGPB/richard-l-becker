@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+
+<Base
+  title="About the Author | Richard L. Becker"
+  description="Richard L. Becker is a Yale Law graduate, practicing family law attorney, and longtime youth hockey coach writing darkly comic fiction about corruption and justice in America."
+>
+  <section class="head">
+    <div class="wrap split">
+      <div class="portrait">
+        <!-- Replace /public/author.jpg with Rich's approved portrait -->
+        <img src="/author.jpg" alt="Richard L. Becker" />
+      </div>
+      <div>
+        <p class="eyebrow">About the Author</p>
+        <h1>Richard L. Becker</h1>
+        <p class="creds">
+          Yale Law Graduate • Practicing Family Law Attorney • Longtime Youth Hockey Coach
+        </p>
+
+        <p>
+          Imaginative, outrageous, and completely unconstrained, Richard L. Becker writes the
+          fiction that most people are afraid to live. By day he practices family law — the front
+          row seat to human nature at its rawest. By night and weekend he coaches youth hockey,
+          where the stakes are supposedly lower and the behavior is somehow worse.
+        </p>
+        <p>
+          He channels the corruption and absurdity he sees daily in the justice system and youth
+          sports into compulsively readable novels that dare readers to keep turning the page. From
+          a private investigator hired to seduce an assistant coach to characters who will do
+          anything to win, his darkly comic stories explore a just person fighting an unjust world
+          — where innocence defeats immorality or joins it.
+        </p>
+        <p>
+          A concept grabs him, the music plays, and the characters take over. The result is raw,
+          topical escapist fiction that delivers uncomfortable truths about love, greed, revenge,
+          and redemption in America today.
+        </p>
+
+        <p class="dare">“Dare you to keep turning the page.”</p>
+
+        <a class="btn" href="/books">Explore the Books</a>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter />
+</Base>
+
+<style>
+  .head { padding-block: 5.5rem; }
+
+  .split {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .portrait img {
+    width: 100%;
+    filter: grayscale(35%) contrast(1.05);
+    border: 1px solid var(--hairline);
+    position: sticky;
+    top: 6rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+  }
+
+  .creds {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin: 0.8rem 0 1.8rem;
+  }
+
+  p + p { margin-top: 1rem; }
+
+  .dare {
+    margin: 1.8rem 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--blood);
+  }
+
+  @media (max-width: 860px) {
+    .split { grid-template-columns: 1fr; }
+    .portrait { max-width: 380px; }
+    .portrait img { position: static; }
+  }
+</style>

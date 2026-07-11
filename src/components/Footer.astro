@@ -1,0 +1,125 @@
+---
+import { LINKS } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="wrap grid">
+    <div class="brand">
+      <p class="name">Richard L. Becker</p>
+      <p class="creds">
+        Yale Law Graduate • Practicing Family Law Attorney • Longtime Youth Hockey Coach
+      </p>
+      <p class="dare">“Dare you to keep turning the page.”</p>
+    </div>
+
+    <nav aria-label="Explore">
+      <p class="head">Explore</p>
+      <a href="/books">Books</a>
+      <a href="/about">About the Author</a>
+      <a href={LINKS.amazonAuthorPage} target="_blank" rel="noopener">Purchase on Amazon</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <nav aria-label="Legal and media">
+      <p class="head">Legal &amp; Media</p>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/contact">Media Inquiries</a>
+      <a href={LINKS.agent} target="_blank" rel="noopener">Literary Agent — Grow Palm Beach</a>
+      <a href="/contact">Press Kit &amp; Interviews</a>
+    </nav>
+
+    <nav aria-label="Social" class="social">
+      <p class="head">Connect</p>
+      <a href={LINKS.instagram} target="_blank" rel="noopener">Instagram</a>
+      <a href={LINKS.facebook} target="_blank" rel="noopener">Facebook</a>
+      <a href={LINKS.x} target="_blank" rel="noopener">X</a>
+      <a href={LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/#newsletter" class="sub">→ Subscribe to the Newsletter</a>
+    </nav>
+  </div>
+
+  <div class="wrap legal">
+    <p>© {year} Richard L. Becker. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding-block: 4rem 2rem;
+    background: var(--ink);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .creds {
+    color: var(--bone-dim);
+    font-size: 0.9rem;
+    max-width: 34ch;
+  }
+
+  .dare {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--blood);
+  }
+
+  .head {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 0.9rem;
+  }
+
+  nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--bone);
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: var(--blood);
+  }
+
+  .social .sub {
+    margin-top: 0.9rem;
+    color: var(--blood);
+  }
+
+  .legal {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--bone-dim);
+  }
+
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 520px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

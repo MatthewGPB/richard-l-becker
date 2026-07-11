@@ -1,0 +1,377 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { BOOKS, LINKS } from '../config';
+
+const featured = BOOKS.filter((b) => b.featured);
+const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
+---
+
+<Base title="Richard L. Becker | Youth Hockey & Family Law Corruption Fiction">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">A Yale Law Attorney &amp; Hockey Coach</p>
+      <h1>
+        Channeling the absurdity<br />
+        and <span class="red">corruption of justice</span><br />
+        in America
+      </h1>
+      <p class="sub">Imaginative. Outrageous. Completely unconstrained.</p>
+
+      <div class="feature-card">
+        <p class="label">Best Sellers • Now Available</p>
+        <h2>{theCatch?.title}</h2>
+        <p class="hook">A reality-TV thriller where the only way out is to win… or die trying.</p>
+        <div class="ctas">
+          <a class="btn" href={theCatch?.amazon} target="_blank" rel="noopener">Buy Now on Amazon</a>
+          <a class="btn btn--ghost" href="/books">See All Books</a>
+        </div>
+      </div>
+
+      <p class="stars" aria-label="Five star reviews">★★★★★</p>
+      <p class="cred-line">
+        Yale Law Graduate • Practicing Family Law Attorney • Longtime Youth Hockey Coach
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="about">
+    <div class="wrap split">
+      <div class="portrait" aria-hidden="true">
+        <!-- Replace /public/author.jpg with Rich's approved portrait -->
+        <img src="/author.jpg" alt="Richard L. Becker" loading="lazy" />
+      </div>
+      <div>
+        <p class="eyebrow">The Author</p>
+        <h2>Imaginative, outrageous, and completely unconstrained.</h2>
+        <p>
+          Richard L. Becker is the Yale Law graduate, practicing family law attorney, and hockey
+          coach who writes the fiction most people are afraid to live. He channels the corruption
+          and absurdity he sees daily in the justice system and youth sports into compulsively
+          readable novels that dare readers to keep turning the page.
+        </p>
+        <p>
+          His darkly comic stories follow a just person fighting an unjust world — where innocence
+          defeats immorality, or joins it. A concept grabs him, the music plays, and the characters
+          take over. The result is raw, topical escapist fiction that delivers uncomfortable truths
+          about love, greed, revenge, and redemption in America today.
+        </p>
+        <a class="read-more" href="/about">Read the Full Story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BOOKS -->
+  <section class="books">
+    <div class="wrap">
+      <p class="eyebrow">Best Sellers</p>
+      <h2>The Evidence</h2>
+      <p class="deck">
+        New covers • Professional developmental edits • Forewords tying each story to real-world
+        law practice and youth hockey corruption
+      </p>
+      <div class="grid">
+        {featured.map((book) => (
+          <article class="card">
+            <a href={book.amazon} target="_blank" rel="noopener" class="cover-link">
+              <img src={book.cover} alt={`${book.title} cover`} loading="lazy" />
+            </a>
+            <h3>{book.title}</h3>
+            <p class="tag">{book.tagline}</p>
+            <a class="btn btn--ghost small" href={book.amazon} target="_blank" rel="noopener">
+              Buy on Amazon
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="all">
+        <a class="btn" href="/books">Explore All Six Novels</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="wrap">
+      <p class="eyebrow">Straight from the Ice and the Courtroom</p>
+      <div class="cols">
+        <div>
+          <h3>Monday Courtroom Confessions</h3>
+          <p>
+            Anonymized. Unfiltered. The cases that make you question everything you thought you
+            knew about justice.
+          </p>
+        </div>
+        <div>
+          <h3>Hockey &amp; Heartbreak</h3>
+          <p>
+            Behind the whistles: when winning at all costs turns parents, coaches, and kids into
+            something darker.
+          </p>
+        </div>
+        <div>
+          <h3>Chaos Theory in Real Life</h3>
+          <p>
+            A just person fighting an unjust world — where innocence either defeats the corruption…
+            or joins it.
+          </p>
+        </div>
+      </div>
+
+      <blockquote class="confession">
+        <p class="file">Monday Courtroom Confession #47 // Anonymized</p>
+        <p class="body">
+          “She sat across from me in the conference room…
+          <span class="redact">Want the rest of this confession? Join the list.</span>”
+        </p>
+        <cite>— Richard L. Becker</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <Newsletter />
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap">
+      <p class="line">A just person fighting an unjust and corrupt world.</p>
+      <p class="line dim">Innocence defeats immorality… or joins it.</p>
+      <a class="btn" href={LINKS.amazonAuthorPage} target="_blank" rel="noopener">
+        Start Reading Today
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: 6.5rem 4.5rem;
+    text-align: center;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 0%, rgba(193, 18, 31, 0.13), transparent 70%),
+      var(--ink);
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 4.1rem);
+    text-transform: uppercase;
+    margin-top: 1.2rem;
+  }
+
+  .red { color: var(--blood); }
+
+  .sub {
+    margin-top: 1.2rem;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--bone-dim);
+  }
+
+  .feature-card {
+    margin: 3rem auto 0;
+    max-width: 560px;
+    border: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    padding: 2.4rem 2rem;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  .feature-card h2 {
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    margin: 0.7rem 0 0.6rem;
+  }
+
+  .hook {
+    color: var(--bone-dim);
+    margin-bottom: 1.6rem;
+  }
+
+  .ctas {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stars {
+    margin-top: 2.4rem;
+    color: var(--blood);
+    letter-spacing: 0.4em;
+  }
+
+  .cred-line {
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  .about {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .portrait img {
+    width: 100%;
+    filter: grayscale(35%) contrast(1.05);
+    border: 1px solid var(--hairline);
+  }
+
+  .about h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+    margin: 0.9rem 0 1.2rem;
+  }
+
+  .about p + p { margin-top: 1rem; }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blood);
+    text-decoration: none;
+  }
+
+  .books {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--hairline);
+    background: var(--ink-raised);
+  }
+
+  .books h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 0.8rem;
+  }
+
+  .deck {
+    color: var(--bone-dim);
+    max-width: 62ch;
+    margin-top: 0.8rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+    margin-top: 3rem;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+    margin-top: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .cover-link img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    width: 100%;
+    border: 1px solid var(--hairline);
+    transition: transform 0.3s ease;
+  }
+
+  .cover-link:hover img { transform: translateY(-4px); }
+
+  .tag {
+    color: var(--bone-dim);
+    font-size: 0.92rem;
+    margin: 0.4rem 0 1.1rem;
+  }
+
+  .small { padding: 0.7rem 1.3rem; font-size: 0.72rem; }
+
+  .all { text-align: center; margin-top: 3rem; }
+
+  .pillars {
+    padding-block: 5.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 2.4rem;
+  }
+
+  .cols h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .cols p { color: var(--bone-dim); font-size: 0.95rem; }
+
+  .confession {
+    margin-top: 4rem;
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--blood);
+    background: var(--ink-raised);
+    padding: 2rem 2.2rem;
+    font-family: var(--font-mono);
+  }
+
+  .file {
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--blood);
+    margin-bottom: 1rem;
+  }
+
+  .confession .body { font-size: 1rem; }
+
+  .redact {
+    background: var(--blood-deep);
+    color: var(--bone);
+    padding: 0.1rem 0.4rem;
+  }
+
+  .confession cite {
+    display: block;
+    margin-top: 1.2rem;
+    font-style: normal;
+    color: var(--bone-dim);
+    font-size: 0.85rem;
+  }
+
+  .final {
+    padding-block: 5.5rem;
+    text-align: center;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .line {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-style: italic;
+  }
+
+  .dim { color: var(--bone-dim); margin: 0.4rem 0 2rem; }
+
+  @media (max-width: 860px) {
+    .split { grid-template-columns: 1fr; }
+    .portrait { max-width: 380px; }
+    .grid, .cols { grid-template-columns: 1fr; }
+  }
+</style>

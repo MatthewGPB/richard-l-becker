@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Privacy Policy | Richard L. Becker"
+  description="Privacy policy for richardlbecker.com."
+>
+  <section class="policy">
+    <div class="wrap">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: [DATE — have Rich's counsel review before launch]</p>
+
+      <h2>What we collect</h2>
+      <p>
+        When you subscribe to the newsletter or submit the contact form, we collect the information
+        you provide (name, email address, and your message). Forms are processed by Formspree, Inc.
+        Their privacy policy is available at formspree.io.
+      </p>
+
+      <h2>Analytics &amp; advertising</h2>
+      <p>
+        This site may use analytics and advertising measurement tools including Google Analytics,
+        Google Tag Manager, Meta Pixel, X Pixel, TikTok Pixel, Microsoft Clarity, and Pinterest
+        Tag. These tools use cookies and similar technologies to understand site traffic and
+        measure advertising performance. You can control cookies through your browser settings.
+      </p>
+
+      <h2>How we use your information</h2>
+      <p>
+        Email addresses collected through the newsletter form are used solely to send the monthly
+        newsletter and book release announcements. We never sell or share your email address. You
+        can unsubscribe at any time using the link in any email.
+      </p>
+
+      <h2>Third-party links</h2>
+      <p>
+        Purchase links on this site direct to Amazon.com. Once you leave this site, Amazon's own
+        privacy policy applies.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy? Reach out through the <a href="/contact">contact form</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .policy { padding-block: 5.5rem; }
+  .policy .wrap { max-width: 720px; }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-top: 0.8rem;
+  }
+
+  .updated {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--bone-dim);
+    margin: 0.8rem 0 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 2.2rem 0 0.7rem;
+  }
+
+  p { color: var(--bone-dim); }
+
+  a { color: var(--blood); }
+</style>

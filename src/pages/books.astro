@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { BOOKS, LINKS } from '../config';
+---
+
+<Base
+  title="Books | Richard L. Becker"
+  description="Six novels of corruption, absurdity, and justice in America — from reality-TV death games to darkly comic courtroom and hockey-rink warfare. Available on Amazon."
+>
+  <section class="head">
+    <div class="wrap">
+      <p class="eyebrow">The Complete Catalog</p>
+      <h1>Six Novels. Zero Restraint.</h1>
+      <p class="deck">
+        Raw, topical escapist fiction about love, greed, revenge, and redemption in America today.
+        Every title available on Amazon in Kindle and paperback.
+      </p>
+    </div>
+  </section>
+
+  <section class="list">
+    <div class="wrap">
+      {BOOKS.map((book, i) => (
+        <article class="row" class:list={[i % 2 === 1 && 'flip']}>
+          <a href={book.amazon} target="_blank" rel="noopener" class="cover">
+            <img src={book.cover} alt={`${book.title} cover`} loading="lazy" />
+          </a>
+          <div class="info">
+            <h2>{book.title}</h2>
+            <p class="tag">{book.tagline}</p>
+            <p class="hook">{book.hook}</p>
+            {book.positioning && <p class="pos">{book.positioning}</p>}
+            <a class="btn" href={book.amazon} target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+        </article>
+      ))}
+
+      <div class="all">
+        <a class="btn btn--ghost" href={LINKS.amazonAuthorPage} target="_blank" rel="noopener">
+          View Full Author Page on Amazon →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter />
+</Base>
+
+<style>
+  .head {
+    padding-block: 5.5rem 3rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-transform: uppercase;
+    margin-top: 1rem;
+  }
+
+  .deck {
+    max-width: 58ch;
+    margin: 1rem auto 0;
+    color: var(--bone-dim);
+  }
+
+  .list { padding-block: 2rem 5rem; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    padding-block: 3rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .row.flip .cover { order: 2; }
+
+  .cover img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    width: 100%;
+    max-width: 300px;
+    margin-inline: auto;
+    border: 1px solid var(--hairline);
+    transition: transform 0.3s ease;
+  }
+
+  .cover:hover img { transform: translateY(-4px); }
+
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    text-transform: uppercase;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blood);
+    margin: 0.6rem 0 1rem;
+  }
+
+  .hook {
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+
+  .pos {
+    color: var(--bone-dim);
+    margin-top: 0.5rem;
+  }
+
+  .info .btn { margin-top: 1.6rem; }
+
+  .all {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 1fr; gap: 1.6rem; text-align: center; }
+    .row.flip .cover { order: 0; }
+  }
+</style>

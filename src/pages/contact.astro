@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import { FORMS, LINKS } from '../config';
+const action = `https://formspree.io/f/${FORMS.CONTACT_FORMSPREE_ID}`;
+---
+
+<Base
+  title="Contact | Richard L. Becker"
+  description="Media inquiries, press kit requests, interviews, and reader mail for author Richard L. Becker."
+>
+  <section class="head">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Get in Touch</h1>
+        <p class="deck">
+          Media inquiries, interviews, press kit requests, book club questions, or just to say the
+          ending kept you up at night — use the form and it lands directly in Rich's inbox.
+        </p>
+        <div class="agent">
+          <p class="label">Literary Representation</p>
+          <a href={LINKS.agent} target="_blank" rel="noopener">Grow Palm Beach →</a>
+        </div>
+      </div>
+
+      <form action={action} method="POST" class="contact-form">
+        <input type="hidden" name="_next" value="https://richardlbecker.com/thanks" />
+        <input type="hidden" name="form_name" value="contact" />
+
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" required autocomplete="name" />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required autocomplete="email" />
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option>Media Inquiry</option>
+          <option>Interview Request</option>
+          <option>Press Kit Request</option>
+          <option>Book Club</option>
+          <option>Reader Mail</option>
+          <option>Other</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head { padding-block: 5.5rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+  }
+
+  .deck {
+    color: var(--bone-dim);
+    margin-top: 1.2rem;
+  }
+
+  .agent {
+    margin-top: 2.5rem;
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--blood);
+    padding: 1.4rem 1.6rem;
+    background: var(--ink-raised);
+  }
+
+  .agent .label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 0.4rem;
+  }
+
+  .agent a {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--bone);
+  }
+
+  .agent a:hover { color: var(--blood); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    padding: 2.2rem;
+  }
+
+  label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-top: 1rem;
+  }
+
+  label:first-of-type { margin-top: 0; }
+
+  input, select, textarea {
+    background: var(--ink);
+    border: 1px solid var(--hairline);
+    color: var(--bone);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+
+  textarea { resize: vertical; }
+
+  .btn {
+    margin-top: 1.6rem;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+</style>

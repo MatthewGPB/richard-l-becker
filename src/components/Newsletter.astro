@@ -1,0 +1,108 @@
+---
+// Newsletter capture → Formspree.
+// Set FORMS.NEWSLETTER_FORMSPREE_ID in src/config.ts.
+// On success, Formspree redirects to /thanks (set via _next hidden field).
+import { FORMS } from '../config';
+const action = `https://formspree.io/f/${FORMS.NEWSLETTER_FORMSPREE_ID}`;
+---
+
+<section class="newsletter" id="newsletter">
+  <div class="wrap inner">
+    <p class="eyebrow">Case File // Subscribers Only</p>
+    <h2>Join the list. Get the unfiltered truth, monthly.</h2>
+    <ul>
+      <li>Exclusive Monday Courtroom Confessions — anonymized, unfiltered</li>
+      <li>Hockey &amp; Heartbreak dispatches from behind the whistle</li>
+      <li>Chaos Theory in Real Life — where innocence defeats immorality, or joins it</li>
+      <li>First look at new releases and behind-the-scenes absurdity</li>
+    </ul>
+    <form action={action} method="POST" class="signup">
+      <input type="hidden" name="_next" value="https://richardlbecker.com/thanks" />
+      <input type="hidden" name="form_name" value="newsletter" />
+      <label class="sr-only" for="nl-email">Email address</label>
+      <input
+        id="nl-email"
+        type="email"
+        name="email"
+        required
+        placeholder="your@email.com"
+        autocomplete="email"
+      />
+      <button type="submit" class="btn">Send Me the Unfiltered Truth</button>
+    </form>
+    <p class="fine">Zero spam. Unsubscribe anytime. Your first confession hits your inbox immediately.</p>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    border-block: 1px solid var(--hairline);
+    background: var(--ink-raised);
+    padding-block: 5rem;
+  }
+
+  .inner {
+    max-width: 680px;
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    margin: 0.9rem 0 1.4rem;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  li {
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.45rem;
+    color: var(--bone-dim);
+  }
+
+  li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--blood);
+  }
+
+  .signup {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  input[type='email'] {
+    flex: 1 1 260px;
+    background: var(--ink);
+    border: 1px solid var(--hairline);
+    color: var(--bone);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    padding: 0.95rem 1.1rem;
+  }
+
+  input[type='email']::placeholder {
+    color: var(--bone-dim);
+  }
+
+  .fine {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--bone-dim);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>

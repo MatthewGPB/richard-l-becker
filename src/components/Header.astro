@@ -1,0 +1,102 @@
+---
+import { LINKS } from '../config';
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/books', label: 'Books' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="wordmark" href="/">Richard L. Becker</a>
+    <nav aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+      <a class="shop" href={LINKS.amazonAuthorPage} target="_blank" rel="noopener">
+        Shop&nbsp;Books&nbsp;→
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--blood);
+    color: var(--bone);
+    padding: 0.5rem 1rem;
+    z-index: 3000;
+  }
+  .skip:focus {
+    left: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: color-mix(in srgb, var(--ink) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bone-dim);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--bone);
+  }
+
+  nav a.shop {
+    color: var(--blood);
+  }
+
+  nav a.shop:hover {
+    color: var(--bone);
+  }
+
+  @media (max-width: 620px) {
+    nav { gap: 1rem; }
+    nav a { font-size: 0.66rem; letter-spacing: 0.14em; }
+    .wordmark { font-size: 0.9rem; }
+  }
+</style>

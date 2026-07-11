@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="You're In | Richard L. Becker" description="Thanks for reaching out to Richard L. Becker.">
+  <section class="thanks">
+    <div class="wrap">
+      <p class="eyebrow">Case File // Received</p>
+      <h1>You're in.</h1>
+      <p>
+        Message received. If you joined the list, your first confession is on the way. No spam.
+        Ever.
+      </p>
+      <div class="ctas">
+        <a class="btn" href="/books">Browse the Books</a>
+        <a class="btn btn--ghost" href="/">Back to Home</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .thanks {
+    min-height: 55vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding-block: 5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    margin: 1rem 0;
+  }
+
+  p { color: var(--bone-dim); max-width: 48ch; margin-inline: auto; }
+
+  .ctas {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.2rem;
+  }
+</style>
