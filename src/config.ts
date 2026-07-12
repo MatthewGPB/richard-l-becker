@@ -6,17 +6,17 @@
 
 export const ANALYTICS = {
   // Google Tag Manager — container ID, e.g. "GTM-XXXXXXX"
-  GTM_ID: '',
+  GTM_ID: 'GTM-KB7GHNGG',
 
   // Google Analytics 4 — measurement ID, e.g. "G-XXXXXXXXXX"
   // (Skip if you load GA4 through GTM instead.)
-  GA4_ID: '',
+  GA4_ID: 'G-2ST4M1LN0W',
 
   // Meta (Facebook/Instagram) Pixel — numeric ID, e.g. "1234567890123456"
-  META_PIXEL_ID: '',
+  META_PIXEL_ID: '3302102963303672',
 
   // X (Twitter) Pixel — e.g. "abcde"
-  X_PIXEL_ID: '',
+  X_PIXEL_ID: 'rdp19',
 
   // TikTok Pixel — e.g. "XXXXXXXXXXXXXXXXXX"
   TIKTOK_PIXEL_ID: '',
@@ -31,8 +31,8 @@ export const ANALYTICS = {
 export const FORMS = {
   // Formspree — create two forms at https://formspree.io and paste the
   // 8-character form IDs below (the part after /f/ in the endpoint URL).
-  NEWSLETTER_FORMSPREE_ID: 'YOUR_NEWSLETTER_FORM_ID',
-  CONTACT_FORMSPREE_ID: 'YOUR_CONTACT_FORM_ID',
+  NEWSLETTER_FORMSPREE_ID: 'xjgnbzba',
+  CONTACT_FORMSPREE_ID: 'xjgnbzba',
 };
 
 export const LINKS = {

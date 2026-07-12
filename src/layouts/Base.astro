@@ -61,6 +61,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         ></iframe>
       </noscript>
     )}
+    {ANALYTICS.META_PIXEL_ID && (
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style="display:none"
+          src={`https://www.facebook.com/tr?id=${ANALYTICS.META_PIXEL_ID}&ev=PageView&noscript=1`}
+          alt=""
+        />
+      </noscript>
+    )}
 
     <div class="grain" aria-hidden="true"></div>
 
