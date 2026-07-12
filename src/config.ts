@@ -53,7 +53,7 @@ export const BOOKS = [
     title: 'THE CATCH',
     tagline: 'Reality-TV thriller with high-stakes moral choices',
     hook: 'The only way out is to win… or die trying.',
-    positioning: 'The Bachelor meets Squid Game.',
+    positioning: 'The Bachelor meets 50 Shades of Grey.',
     cover: '/covers/the-catch.jpg',
     amazon:
       'https://www.amazon.com/Catch-Richard-Becker-ebook/dp/B07RHQ4NPV',
