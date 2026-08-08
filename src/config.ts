@@ -32,7 +32,7 @@ export const FORMS = {
   // Formspree — create two forms at https://formspree.io and paste the
   // 8-character form IDs below (the part after /f/ in the endpoint URL).
   NEWSLETTER_FORMSPREE_ID: 'xjgnbzba',
-  CONTACT_FORMSPREE_ID: 'xjgnbzba',
+  CONTACT_FORMSPREE_ID: 'xdaqnjyz',
 };
 
 export const LINKS = {
@@ -45,6 +45,16 @@ export const LINKS = {
   agent: 'https://growpalmbeach.com/',
 };
 
+// TEMPORARY: portrait/OG/flagship covers point at the live Shopify CDN.
+// Migrate these files locally (into /public) BEFORE canceling Shopify,
+// or they will 404 the day the store closes.
+export const IMAGES = {
+  authorPortrait:
+    'https://cdn.shopify.com/s/files/1/0823/3985/6605/files/SBmbj.jpg?v=1776447876',
+  ogDefault:
+    'https://cdn.shopify.com/s/files/1/0823/3985/6605/files/y7ajy_2.jpg?v=1777164256',
+};
+
 // Append Amazon Attribution tags here once created in the Amazon Ads
 // console (Attribution tags are per-link, not a site-wide script).
 export const BOOKS = [
@@ -53,8 +63,8 @@ export const BOOKS = [
     title: 'THE CATCH',
     tagline: 'Reality-TV thriller with high-stakes moral choices',
     hook: 'The only way out is to win… or die trying.',
-    positioning: 'The Bachelor meets 50 Shades of Grey.',
-    cover: '/covers/the-catch.jpg',
+    positioning: 'The Bachelor meets Squid Game.',
+    cover: 'https://cdn.shopify.com/s/files/1/0823/3985/6605/files/The_Catch_Cover.jpg?v=1776450214', // TEMP Shopify CDN
     amazon:
       'https://www.amazon.com/Catch-Richard-Becker-ebook/dp/B07RHQ4NPV',
     featured: true,
@@ -65,7 +75,7 @@ export const BOOKS = [
     tagline: 'Chaos, revenge & redemption in a world gone mad',
     hook: 'A post-9/11 occult thriller that reads as disturbingly prescient.',
     positioning: 'For fans of Stephen King, John Grisham, and Gillian Flynn.',
-    cover: '/covers/hell-beckons.jpg',
+    cover: 'https://cdn.shopify.com/s/files/1/0823/3985/6605/files/Hells_Beckons_Cover_1.jpg?v=1776450209', // TEMP Shopify CDN
     amazon:
       'https://www.amazon.com/Hell-Beckons-Richard-Becker-ebook/dp/B07RLSBQSP',
     featured: true,
@@ -76,7 +86,7 @@ export const BOOKS = [
     tagline: 'Darkly comic legal & hockey absurdity',
     hook: 'The courtroom and the rink collide — and nobody skates away clean.',
     positioning: 'Grisham-meets-Turow with a slapshot.',
-    cover: '/covers/divorce-and-the-holy-puck.jpg',
+    cover: 'https://cdn.shopify.com/s/files/1/0823/3985/6605/files/Divorce_and_the_Holy_Puck.jpg?v=1776452440', // TEMP Shopify CDN
     amazon:
       'https://www.amazon.com/Divorce-Holy-Puck-Richard-Becker-ebook/dp/B079J4R99P',
     featured: true,
@@ -87,7 +97,7 @@ export const BOOKS = [
     tagline: 'Love and loss across an unforgiving American landscape',
     hook: 'Some places take more than they give.',
     positioning: '',
-    cover: '/covers/the-heart-lands.jpg',
+    cover: '/covers/the-heart-lands.svg',
     amazon: 'https://www.amazon.com/stores/author/B0057K5UEY/allbooks',
     featured: false,
   },
@@ -97,7 +107,7 @@ export const BOOKS = [
     tagline: 'Behind every manicured lawn, a secret worth burying',
     hook: 'Everyone waves. No one talks.',
     positioning: '',
-    cover: '/covers/the-neighborhood.jpg',
+    cover: '/covers/the-neighborhood.svg',
     amazon: 'https://www.amazon.com/stores/author/B0057K5UEY/allbooks',
     featured: false,
   },
@@ -107,7 +117,7 @@ export const BOOKS = [
     tagline: 'A sweet route through a sour town',
     hook: 'He knows every street — and every secret on it.',
     positioning: '',
-    cover: '/covers/ice-cream-man.jpg',
+    cover: '/covers/ice-cream-man.svg',
     amazon: 'https://www.amazon.com/stores/author/B0057K5UEY/allbooks',
     featured: false,
   },

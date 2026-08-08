@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
-import { BOOKS, LINKS } from '../config';
+import { BOOKS, LINKS, IMAGES } from '../config';
 
 const featured = BOOKS.filter((b) => b.featured);
 const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
@@ -41,7 +41,7 @@ const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
     <div class="wrap split">
       <div class="portrait" aria-hidden="true">
         <!-- Replace /public/author.jpg with Rich's approved portrait -->
-        <img src="/author.jpg" alt="Richard L. Becker" loading="lazy" />
+        <img src={IMAGES.authorPortrait} alt="Richard L. Becker" loading="lazy" />
       </div>
       <div>
         <p class="eyebrow">The Author</p>

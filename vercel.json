@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/thoughts", "destination": "/", "permanent": true },
+    { "source": "/thoughts/:path*", "destination": "/", "permanent": true }
+  ]
+}

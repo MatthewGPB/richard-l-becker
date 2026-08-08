@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Newsletter from '../components/Newsletter.astro';
+import { IMAGES } from '../config';
 ---
 
 <Base
@@ -11,7 +12,7 @@ import Newsletter from '../components/Newsletter.astro';
     <div class="wrap split">
       <div class="portrait">
         <!-- Replace /public/author.jpg with Rich's approved portrait -->
-        <img src="/author.jpg" alt="Richard L. Becker" />
+        <img src={IMAGES.authorPortrait} alt="Richard L. Becker" />
       </div>
       <div>
         <p class="eyebrow">About the Author</p>

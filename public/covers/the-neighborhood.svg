@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <rect width="400" height="600" fill="#0A0908"/>
+  <rect x="18" y="18" width="364" height="564" fill="none" stroke="#C1121F" stroke-width="2"/>
+  <rect x="26" y="26" width="348" height="548" fill="none" stroke="#3c3730" stroke-width="1"/>
+  <text x="200" y="60" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#6e645a">PLACEHOLDER — SWAP REAL COVER</text>
+  <text x="200" y="300" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="30" fill="#F5F0E6">THE NEIGHBORHOOD</text>
+  <text x="200" y="540" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#C1121F">RICHARD L. BECKER</text>
+</svg>

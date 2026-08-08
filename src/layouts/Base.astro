@@ -2,7 +2,7 @@
 import Analytics from '../components/Analytics.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { ANALYTICS } from '../config';
+import { ANALYTICS, IMAGES } from '../config';
 
 interface Props {
   title: string;
@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description = 'Yale Law graduate, practicing family law attorney & youth hockey coach Richard L. Becker writes outrageous, unconstrained fiction exposing absurdity & corruption in youth sports and the justice system.',
-  ogImage = '/og-default.jpg',
+  ogImage = IMAGES.ogDefault,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -35,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).href} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

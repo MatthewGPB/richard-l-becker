@@ -5,6 +5,9 @@ export default defineConfig({
   site: 'https://richardlbecker.com',
   output: 'static',
   trailingSlash: 'never',
+  redirects: {
+    '/thoughts': '/',
+  },
   build: {
     inlineStylesheets: 'auto',
   },
