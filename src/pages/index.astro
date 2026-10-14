@@ -4,7 +4,7 @@ import Newsletter from '../components/Newsletter.astro';
 import { BOOKS, LINKS, IMAGES } from '../config';
 
 const featured = BOOKS.filter((b) => b.featured);
-const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
+const newRelease = BOOKS.find((b) => b.slug === 'america-dreams');
 ---
 
 <Base title="Richard L. Becker | Youth Hockey & Family Law Corruption Fiction">
@@ -20,12 +20,21 @@ const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
       <p class="sub">Imaginative. Outrageous. Completely unconstrained.</p>
 
       <div class="feature-card">
-        <p class="label">Best Sellers • Now Available</p>
-        <h2>{theCatch?.title}</h2>
-        <p class="hook">A reality-TV thriller where the only way out is to win… or die trying.</p>
-        <div class="ctas">
-          <a class="btn" href={theCatch?.amazon} target="_blank" rel="noopener">Buy Now on Amazon</a>
-          <a class="btn btn--ghost" href="/books">See All Books</a>
+        <div class="feature-cover">
+          <img src={newRelease?.cover} alt={`${newRelease?.title} cover`} />
+        </div>
+        <div class="feature-copy">
+          <p class="label">New Release • Out Now</p>
+          <h2>{newRelease?.title}</h2>
+          <p class="hook-line">Her dream. <span class="red">Your nightmare.</span></p>
+          <p class="hook">
+            A dystopian civil war thriller where the battle for America rages on the ground — and
+            in the dream realm.
+          </p>
+          <div class="ctas">
+            <a class="btn" href={newRelease?.amazon} target="_blank" rel="noopener">Buy Now on Amazon</a>
+            <a class="btn btn--ghost" href="/books">See All Books</a>
+          </div>
         </div>
       </div>
 
@@ -87,7 +96,7 @@ const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
         ))}
       </div>
       <div class="all">
-        <a class="btn" href="/books">Explore All Six Novels</a>
+        <a class="btn" href="/books">Explore All Seven Novels</a>
       </div>
     </div>
   </section>
@@ -171,10 +180,42 @@ const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
 
   .feature-card {
     margin: 3rem auto 0;
-    max-width: 560px;
+    max-width: 780px;
     border: 1px solid var(--hairline);
     background: var(--ink-raised);
     padding: 2.4rem 2rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .feature-cover img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border: 1px solid var(--hairline);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+  }
+
+  .hook-line {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  @media (max-width: 680px) {
+    .feature-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .feature-cover {
+      max-width: 220px;
+      margin-inline: auto;
+    }
   }
 
   .label {
@@ -198,8 +239,11 @@ const theCatch = BOOKS.find((b) => b.slug === 'the-catch');
   .ctas {
     display: flex;
     gap: 0.8rem;
-    justify-content: center;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 680px) {
+    .ctas { justify-content: center; }
   }
 
   .stars {

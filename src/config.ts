@@ -59,6 +59,17 @@ export const IMAGES = {
 // console (Attribution tags are per-link, not a site-wide script).
 export const BOOKS = [
   {
+    slug: 'america-dreams',
+    title: 'AMERICA DREAMS',
+    tagline: 'Dystopian civil war thriller where dreams bleed into war',
+    hook: 'HER DREAM. YOUR NIGHTMARE.',
+    positioning: 'A nation tearing itself apart — and the dream realm tearing back.',
+    cover: '/covers/america-dreams.jpg',
+    amazon:
+      'https://www.amazon.com/America-Dreams-Richard-L-Becker-ebook/dp/B0HHG72R8R',
+    featured: false, // featured in the homepage hero instead of the grid
+  },
+  {
     slug: 'the-catch',
     title: 'THE CATCH',
     tagline: 'Reality-TV thriller with high-stakes moral choices',
